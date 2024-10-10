@@ -4,11 +4,17 @@
 // Input: digits = [1,2,3]
 // Output: [1,2,4]
 
-function plusOne(s) {
-  let str = s.join('');
-  let num = Number(str);;
-  let sum = num+1;
-  return Array.from(String(sum), Number);
+function plusOne(digits: number[]) {
+  for (var i = digits.length - 1; i >= 0; i--) {
+    if (digits[i] < 9) {
+      digits[i]++;
+      return digits;
+    } else {
+      digits[i] = 0;
+    }
+  }
+  digits.unshift(1);
+  return digits;
 }
 
-plusOne([6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3]);
+plusOne([6, 1, 4, 5, 3, 9, 0, 1, 9, 5, 1, 8, 6, 7, 0, 5, 5, 4, 3]);
