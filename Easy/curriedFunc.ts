@@ -19,4 +19,4 @@ function curry(func) {
 
 curriedTaskChain()()()(1, 2, 3);
 curriedTaskChain(1, 2, 3);
-curriedTaskChain(1)()(2, 3);
+// curriedTaskChain(1)()(2, 3);
