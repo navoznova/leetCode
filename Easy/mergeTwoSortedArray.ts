@@ -10,7 +10,7 @@ function mergeTwoSortedArray(arr1, m, arr2, n) {
   let currentElemArr1 = arr1[m - i];
   let currentElemArr2 = arr2[n - j];
 
-  while (currentElemArr2) {
+  while (j <= n) {
     if (currentElemArr1 > currentElemArr2) {
       arr1[indexToAdd] = currentElemArr1;
       i++
