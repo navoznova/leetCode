@@ -1,33 +1,28 @@
-
-
-let nums1 = [1, 2, 3, 0, 0, 0];
+let nums1 = [2, 5, 6, 0, 0, 0];
 let m = 3;
-let nums2 = [2, 5, 6];
+let nums2 = [1, 2, 3];
 let n = 3;
 
 function mergeTwoSortedArray(arr1, m, arr2, n) {
-  let lastArr1Elem = arr1[m-1];//3
-  let lastArr2Elem = arr2[n-1];//2
-  let countCommon = 1;
-  let countArr1 = 1;
+  let indexToAdd = n + m - 1;
+  let i = 1;
+  let j = 1;
+  let currentElemArr1 = arr1[m - i];
+  let currentElemArr2 = arr2[n - j];
 
-  for (let i = n-1; i >= 0; i--) {
-    lastArr2Elem = arr2[i];
-
-    if(lastArr1Elem < lastArr2Elem) {
-      arr1[m+n-countCommon] = lastArr2Elem;
+  while (currentElemArr2) {
+    if (currentElemArr1 > currentElemArr2) {
+      arr1[indexToAdd] = currentElemArr1;
+      i++
+      currentElemArr1 = arr1[m - i];
     } else {
-      arr1[m+n-countCommon] = lastArr1Elem;
-      arr1[m-countArr1] = lastArr2Elem;
-      countArr1++;
-      lastArr1Elem = arr1[m-countArr1];
+      arr1[indexToAdd] = currentElemArr2;
+      j++
+      currentElemArr2 = arr2[n - j];
     }
-
-    countCommon++;
+    indexToAdd--;
   }
- 
 }
 
 console.log(mergeTwoSortedArray(nums1, m, nums2, n));
 console.log(nums1);
-
