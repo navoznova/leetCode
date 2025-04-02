@@ -7,19 +7,19 @@ function mergeTwoSortedArray(arr1, m, arr2, n) {
   let indexToAdd = n + m - 1;
   let i = 1;
   let j = 1;
-  let currentElemArr1 = arr1[m - i];
-  let currentElemArr2 = arr2[n - j];
 
   while (j <= n) {
+    let currentElemArr1 = arr1[m - i];
+    let currentElemArr2 = arr2[n - j];
+
     if (currentElemArr1 > currentElemArr2) {
       arr1[indexToAdd] = currentElemArr1;
-      i++
-      currentElemArr1 = arr1[m - i];
+      i++;
     } else {
       arr1[indexToAdd] = currentElemArr2;
-      j++
-      currentElemArr2 = arr2[n - j];
+      j++;
     }
+
     indexToAdd--;
   }
 }
