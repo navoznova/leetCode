@@ -21,4 +21,4 @@ function addBinary(a, b) {
   return result;
 }
 
-addBinary("11", "1");
+console.log(addBinary("11", "1"));
